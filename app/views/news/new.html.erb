@@ -1,0 +1,19 @@
+<h1 align="center">Jaguar Technology News</h1>
+<br><br>
+<h2 align="center">Nova Notícia</h2>
+<br>
+<%= form_with(model: @news_item, url: news_index_path, method: :post) do |form| %>
+  <div align="center">
+    <%= form.label :title, "Título" %>
+    <%= form.text_field :title %>
+  </div>
+<br>
+  <div align="center">
+    <%= form.label :content, "Conteúdo" %>
+    <%= form.text_area :content %>
+  </div>
+  <br>
+<div align="center">
+  <%= form.submit "Salvar" %>
+</div>
+<% end %>

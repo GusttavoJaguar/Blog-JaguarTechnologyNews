@@ -1,0 +1,21 @@
+<!-- app/views/news/index.html.erb -->
+
+<h1 align="center">Jaguar Technology News</h1>
+
+<h2>Notícias</h2>
+
+<ul>
+  <% if @news.present? %>
+    <% @news.each do |news_item| %>
+      <li>
+        <h3><%= link_to news_item.title, new_news_path(news_item) %></h3>
+        <p><%= news_item.content %></p>
+        <p>Publicado em: <%= news_item.created_at.strftime("%d/%m/%Y") %></p>
+      </li>
+    <% end %>
+  <% else %>
+    <li>Nenhuma notícia encontrada.</li>
+  <% end %>
+</ul>
+
+<%= link_to "Nova Notícia", new_news_path %>

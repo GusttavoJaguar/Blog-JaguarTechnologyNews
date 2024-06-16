@@ -1,0 +1,24 @@
+<!-- app/views/layouts/application.html.erb ou outra view onde está o código -->
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Blog - Jaguar News</title>
+    <!-- Seus estilos e scripts -->
+  </head>
+  <body>
+    <nav>
+      <ul>
+        <li><%= link_to "Início", Rails.application.routes.url_helpers.root_path %></li>
+        <% if @news_item && @news_item.persisted? %>
+          <li><%= link_to "Ver Notícia", new_news_path(@news_item.id) %></li>
+        <% end %>
+        <!-- Outros links do seu blog -->
+      </ul>
+    </nav>
+
+    <div>
+      <%= yield %>
+    </div>
+  </body>
+</html>
